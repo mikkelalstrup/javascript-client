@@ -3,27 +3,27 @@ $(document).ready(() => {
     SDK.User.loadNav();
 
     $("#createUser-button").click(() => {
-        console.log("ran");
+
         const firstName = $("#inputFirstName").val();
         const lastName = $("#inputLastName").val();
         const gender = $("#inputGender").val();
-        const description = "Welcome to my profile description!";
+        const description = $("#inputDescriptionUser").val();
         const major = $("#inputMajor").val();
         const semester = $("#inputSemester").val();
         const email = $("#inputEmailNewUser").val();
         const password = $("#inputPasswordNewUser").val();
 
 
-        console.log(semester);
+
         SDK.User.createUser(firstName, lastName, email, description, gender, major, password, semester, (data, err) => {
 
 
-            console.log(err);
-            console.log(data);
 
             var code
             setTimeout(function () {
                  code = statusCodeOfCall;
+
+                 /*Code variablen bliver brugt til at aflæse hvilket statuskode man får fra serveren*/
 
 
 

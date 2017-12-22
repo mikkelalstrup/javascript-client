@@ -8,9 +8,9 @@ $(document).ready(() => {
 
     SDK.User.getUserById(userId, (data, err) => {
         currentUser = data;
-        console.log(currentUser.firstName);
 
-        const $basketTbody = $("#basket-tbody");
+
+
 
         if (SDK.Storage.load("chosenProfileId") === SDK.Storage.load("currentUserId")){
             $(".page-header").html(`

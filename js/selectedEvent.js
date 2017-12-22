@@ -4,28 +4,25 @@ $(document).ready(() => {
     SDK.User.loadNav();
 
     eventId = SDK.Storage.load("eventId");
-    console.log(eventId);
+
 
     var createPostDescription;
     var newCommentContent;
     SDK.Event.getEventById(eventId, (data, error) => {
 
         const event = data;
-        console.log(data);
-        console.log();
-
 
         var owner;
         var ownerName;
         SDK.User.getUserById(event.owner.id, (data, error) => {
             owner = data;
-            console.log(owner);
+
             ownerName = owner.firstName.capitalize() + " " + owner.lastName.capitalize();
-            console.log(ownerName);
+
 
         });
 
-
+        /*Bruger setTimeout funktionen, da selve serverkaldet skal nå at svare tilbage før man bygger HTML elementer*/
         setTimeout(function () {
 
 
@@ -69,12 +66,13 @@ $(document).ready(() => {
             $("#createPostBtn").click(function () {
 
                 createPostDescription = $("#inputNewPostDescription").val();
-                console.log(createPostDescription);
+
                 SDK.Post.createPostInEvent(localStorage.getItem("CafeNexuscurrentUserId"), createPostDescription, event.id, (data, err) => {
 
-                    console.log(data);
+
 
                     setTimeout(function () {
+                        /*Opdaterer siden når man har oprettet en ny kommentar*/
                         location.reload();
                     }, 500);
 
@@ -97,15 +95,15 @@ $(document).ready(() => {
 
             });
 
-            console.log(event);
+
 
             $(".createCommentBtnTest").click(function () {
                 newCommentContent = $("#inputNewComment").val();
-                console.log(newCommentContent);
+
 
 
                 SDK.Post.createCommentInPost(localStorage.getItem("CafeNexuscurrentUserId"), newCommentContent, SDK.Storage.load("SelectedComment"), (data, err) => {
-                    console.log(data);
+
 
                     setTimeout(function () {
                         location.reload();
@@ -117,10 +115,7 @@ $(document).ready(() => {
 
             $(".attendEventBtn").on("click", function () {
 
-                console.log("i ran2");
                 SDK.Event.attendEvent(SDK.Storage.load("currentUserId"), event.id, (data, err) => {
-                    console.log("i ran");
-                    console.log(data);
 
                     setTimeout(function () {
                         location.reload();
@@ -132,10 +127,6 @@ $(document).ready(() => {
 
             event.posts.forEach((post) => {
 
-                /*  var currentPost = getPostOwner(post.id);*/
-
-                console.log(post);
-                console.log(post.owner.id);
 
 
                 setTimeout(function () {
@@ -145,13 +136,13 @@ $(document).ready(() => {
                         SDK.Post.getPostById(post.id, (data, error) => {
                             var postData = data;
 
-                            console.log(postData);
+
 
 
                             var postId = postData.id;
 
 
-                            console.log(postOwner);
+
 
 
                             $(".event-content").append(`
@@ -196,7 +187,6 @@ $(document).ready(() => {
 
                             postData.comments.forEach((comment) => {
                                 SDK.User.getUserById(comment.owner.id, (data, error) => {
-                                    console.log(comment);
                                     var commentOwner = data;
 
 
@@ -221,7 +211,7 @@ $(document).ready(() => {
                 }, 100);
 
             });
-            // window.location.href = "selectedevent.html";
+
 
 
         }, 100);
@@ -229,6 +219,10 @@ $(document).ready(() => {
 
 
     });
+
+    /*Denne funktion bruger til at lave det først bogstav med stort
+    * Inspiration fra https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+    * */
     String.prototype.capitalize = function () {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }

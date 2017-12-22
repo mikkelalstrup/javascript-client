@@ -1,3 +1,6 @@
+//Inspiration taget fra jesper javascript-client repository
+
+//statusCodeOfCall bliver brugt til at sætte serverens status kode
 var statusCodeOfCall = 200;
 const SDK = {
 
@@ -5,8 +8,11 @@ const SDK = {
 
         request: (options, cb) => {
 
-
+            // Her sætter man token fra local storage
             let token = {"AUTHORIZATION": "Bearer " + localStorage.getItem("CafeNexustoken")}
+
+            /*Dette ajax kald er standard for alle kald til serveren (på nær login)
+            ,da man forventer at al kommunikation er gennem JSON objekter*/
 
             $.ajax({
                 url: SDK.serverURL + options.url,
@@ -32,7 +38,7 @@ const SDK = {
             });
 
         },
-
+        /* Bruger denne ajax metode specifikt til at logge ind, da man modtager token i form af en string*/
         loginRequest: (options, cb) => {
             $.ajax({
                 url: SDK.serverURL + "/auth/",
@@ -280,8 +286,6 @@ const SDK = {
                         SDK.Storage.persist("currentUserEmail", jsonUser.email);
                         SDK.Storage.persist("currentUserId", jsonUser.id);
 
-                        console.log(token);
-
 
                         if (err) return cb(err);
 
@@ -293,6 +297,10 @@ const SDK = {
                     return SDK.Storage.load("currentUserId");
                 },
 
+
+                /*Inspiration fra Jespers javaScript-client
+                * loadNav funktionen sørger for at sætte navigationsbaren alt efter om man er logget ind eller ej
+                * */
                 loadNav: (cb) => {
                     $("#nav-container").load("nav.html", () => {
                         const currentUser = SDK.User.current();
@@ -328,6 +336,7 @@ const SDK = {
             },
 
 
+    /*Inspiration fra Jespers javascript-client*/
             Storage: {
                 prefix: "CafeNexus",
                 persist: (key, value) => {
