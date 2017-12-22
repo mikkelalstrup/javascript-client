@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>CafeNexus</title>
+
+</head>
+<body>
+
+<div class="container" id="eventContainer">
+
+    <div class="row" id="nav-container"></div>
+
+    <div class="row">
+        <div class="col-lg-12 event-header" id="event-header">
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-4 event-description" id="event-description">
+
+
+
+
+            <!-- Modal -->
+            <div id="attendingUsersModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header attendingUserHeaderModal">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body attendingUserModal">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="createPostModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header createPostModalHeader">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body createPostModal">
+                            <div class="form-group">
+                                <label class="control-label" for="inputEmail">Description</label>
+                                <input type="text" class="form-control" id="inputNewPostDescription" placeholder="Description">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id="createPostBtn" data-dismiss="modal">Create Post!</button>
+                            <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="commentOnPostModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header commentOnPostModalHeader">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body commentOnPostModal">
+                            <div class="form-group">
+                                <label class="control-label" for="inputEmail">Fill out a comment</label>
+                                <input type="text" class="form-control" id="inputNewComment" placeholder="Input your comment here">
+                            </div>
+                        </div>
+                        <div class="modal-footer newCommentModalFooter">
+                            <button type="button" class="btn btn-default createCommentBtnTest" id="test" data-dismiss="modal">Comment!</button>
+                            <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-8 event-content" id="event-content">
+
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Cafe Nexus</p>
+    </div>
+</footer>
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<!--<script src="js/events.js"></script>-->
+<script src="js/selectedEvent.js"></script>
+
+</body>
+</html>

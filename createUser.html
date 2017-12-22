@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>CafeNexus</title>
+
+</head>
+<body>
+
+<div class="container">
+
+   <div class="row" id="nav-container"></div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="row">
+                <div  style="font-size: 20px" class="col-sm-12 page-header">Enter user information</div>
+              <!--  <div style="visibility: hidden" style="font-size: 20px" class="col-sm-4 page-header" id="createUserMessage"></div>-->
+
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">First name</label>
+                <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Last name</label>
+                <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputEmail">Email address</label>
+                <input type="text" class="form-control" id="inputEmailNewUser" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPasswordNewUser" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Gender</label>
+                <select class="form-control"id= "inputGender"  placeholder="m">
+                    <option>m</option>
+                    <option>f</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Major</label>
+                <input type="text" class="form-control" id="inputMajor" placeholder="Major">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Semester</label>
+                <select class="form-control"id= "inputSemester"  placeholder="1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"> <button style="margin-bottom: 40px" class="btn btn-default" id="createUser-button">Join Cafe Nexus!</button> </div>
+
+                <div class="col-sm-8 createUserErr" >
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">2017 © CafeNexus - All rights reserved</p>
+    </div>
+</footer>
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/createUser.js"></script>
+
+</body>
+</html>

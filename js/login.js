@@ -7,15 +7,21 @@ $(document).ready(() => {
     const email = $("#inputEmail").val();
     const password = $("#inputPassword").val();
 
-    SDK.User.login(email, password, (err, data) => {
+console.log("test1");
+    SDK.User.login(email, password, (data, err ) => {
+        console.log("test2");
       if (err && err.xhr.status === 401) {
         $(".form-group").addClass("has-error");
+
+        console.log("fejl 1");
       }
-      else if (err){
-        console.log("BAd stuff happened")
-      } else {
-        window.location.href = "my-page.html";
+
+      else if (err) {
+          console.log("BAd stuff happened");
+              console.log("fejl2");
       }
+      console.log("fejl3");
+        window.location.href = "index.html";
     });
 
   });

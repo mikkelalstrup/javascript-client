@@ -21,3 +21,11 @@ dd {
 .book-container .price-label p {
     margin: 4px 0 0 0;
 }
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.text-align-center {
+    text-align: center;
+}
